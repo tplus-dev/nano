@@ -1,0 +1,46 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript" src="../nano.js"></script>
+		<script type="text/javascript">
+
+			var myApp = new tplus.nano.app;
+
+			myApp
+				.environment()
+					.developmentWhen([ 'localhost' ])
+					.productionWhen([ 'www.example.com' ])
+					.defineUrl( function ( uri ) {
+						return 'http://localhost/nano/samples/' + uri.replace(/^\//,'')
+					} );
+
+			myApp
+				.options()
+					.set('serverRequest.onSuccess', function ( data ) {
+						console.log('succes',data);
+					})
+					.set('serverRequest.onError', function ( err ) {
+						console.log('error', err);
+					})
+					.set('serverRequest.always', function ( ) {
+						console.log('always');
+					});
+
+
+			var serverRequest = myApp.serverRequest();
+			serverRequest
+				.requestMethod('GET')
+				.parameters({
+					'hello': 'world'
+				})
+				.execute('ajax.php');
+
+			myApp.serverRequest()
+				.requestMethod('GET')
+				.parameters({})
+				.execute('not-found/');
+
+		</script>
+	</head>
+</html>
