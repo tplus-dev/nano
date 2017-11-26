@@ -141,14 +141,14 @@
 
 		/**
 		 * ID of the environment (ie. production or dev.)
-		 * @type {number|undefined}
+		 * @type {Number|undefined}
 		 */
 		
 		this.envId;
 
 		/**
 		 * Optional (alternative) URL method
-		 * @type {function|undefined}
+		 * @type {Function|undefined}
 		 */
 		
 		this.urlMethod;
@@ -158,8 +158,8 @@
 		 * Especially useful when domains require additional URI, such as localhost,
 		 * for example: http://localhost/my-project/
 		 *
-		 * @param {function} closure
-		 * @return {object} Instance of environment
+		 * @param {Function} closure
+		 * @return {Object} Instance of environment
 		 */
 
 		this.defineUrl = function ( closure ) {
@@ -177,8 +177,8 @@
 		/**
 		 * Retrieve the URL dynamically
 		 *
-		 * @param {string} uri Optional URI
-		 * @return {string}
+		 * @param {String} uri Optional URI
+		 * @return {String}
 		 */
 
 		this.url = function ( uri ) {
@@ -210,8 +210,8 @@
 		 * Configure the environment as development when hostname matches one of the array
 		 * elements
 		 *
-		 * @param {array} developmentDomains List of domains that are used for development
-		 * @return {object} Instance of self
+		 * @param {Array} developmentDomains List of domains that are used for development
+		 * @return {Object} Instance of self
 		 */
 		
 		this.developmentWhen = function ( developmentDomains ) {
@@ -229,8 +229,8 @@
 		 * Configure the environment as production when hostname matches one of the array
 		 * elements
 		 *
-		 * @param {array} productionDomains List of domains that are used for production
-		 * @return {object} Instance of self
+		 * @param {Array} productionDomains List of domains that are used for production
+		 * @return {Object} Instance of self
 		 */
 
 		this.productionWhen = function ( productionDomains ) {
@@ -249,7 +249,7 @@
 		 * Primarily added, in case we sometime in the future might need to work with
 		 * ports, alternate protocols or something else entirely
 		 * 
-		 * @return {string}
+		 * @return {String}
 		 */
 		
 		this.getHostname = function ( ) {
@@ -260,7 +260,7 @@
 		 * Wrapper/helper method for retrieving the environment ID
 		 * Ensures the ID is defined
 		 *
-		 * @return {number}
+		 * @return {Number}
 		 */
 
 		this.getEnvId = function ( ) {
@@ -273,7 +273,7 @@
 		/**
 		 * Returns true if we are operating in a development environment
 		 *
-		 * @return {boolean}
+		 * @return {Boolean}
 		 */
 
 		this.isDevelopment = function ( ) {
@@ -283,7 +283,7 @@
 		/**
 		 * Returns true if we are operating in production environment
 		 *
-		 * @return {boolean}
+		 * @return {Boolean}
 		 */
 
 		this.isProduction = function ( ) {
@@ -296,7 +296,8 @@
 	 * T+ Nano Server Request class
 	 * Performs REST-based calls in JSON format to specified server URL(s)
 	 *
-	 * @param {object} environment Instance of the T+ Nano Environment class
+	 * @param {Object} environment Instance of the T+ Nano Environment class
+	 * @param {Object} options Instnace of the T+ Nano Options class
 	 */
 	
 	tplus.nano.serverRequest = function ( environment, options ) {
@@ -419,7 +420,7 @@
 		/**
 		 * Set the "onSuccess" callback
 		 *
-		 * @param {Functions} closure
+		 * @param {Function} closure
 		 * @return {Object} serverRequest
 		 */
 		
@@ -432,7 +433,7 @@
 		/**
 		 * Set the "onError" callback
 		 *
-		 * @param {Functions} closure
+		 * @param {Function} closure
 		 * @return {Object} serverRequest
 		 */
 		
@@ -445,7 +446,7 @@
 		/**
 		 * Set the "always" callback
 		 *
-		 * @param {Functions} closure
+		 * @param {Function} closure
 		 * @return {Object} serverRequest
 		 */
 		
