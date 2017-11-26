@@ -397,6 +397,65 @@
 		}
 
 		/**
+		 * Helper method for streamlining the process of setting callbacks
+		 *
+		 * @param {String} callbackName
+		 * @param {Function} closure
+		 * @return {void}
+		 */
+		
+		this.setCallback = function ( callbackName, closure ) {
+
+			if ( typeof closure !== 'function' ) {
+				console.error( 'Parameter passed for callback is not a function' );
+			}
+
+			this.callbacks[callbackName] = closure;
+
+			return this;
+
+		}
+
+		/**
+		 * Set the "onSuccess" callback
+		 *
+		 * @param {Functions} closure
+		 * @return {Object} serverRequest
+		 */
+		
+		this.onSuccess = function ( closure ) {
+
+			return this.setCallback( 'success', closure );
+
+		}
+
+		/**
+		 * Set the "onError" callback
+		 *
+		 * @param {Functions} closure
+		 * @return {Object} serverRequest
+		 */
+		
+		this.onError = function ( closure ) {
+
+			return this.setCallback( 'error', closure );
+
+		}
+
+		/**
+		 * Set the "always" callback
+		 *
+		 * @param {Functions} closure
+		 * @return {Object} serverRequest
+		 */
+		
+		this.always = function ( closure ) {
+
+			return this.setCallback( 'always', closure );
+
+		}
+
+		/**
 		 * Execute the server request on the provided URI
 		 *
 		 * @param {String} uri

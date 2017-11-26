@@ -34,11 +34,20 @@
 				.parameters({
 					'hello': 'world'
 				})
+				.onSuccess(function(data){
+					console.log('Custom onSuccess', data);
+				})
 				.execute('ajax.php');
 
 			myApp.serverRequest()
 				.requestMethod('GET')
 				.parameters({})
+				.onError(function(errMsg) {
+					console.log('Custom onError',errMsg);
+				})
+				.always(function(){
+					console.log('Custom always')
+				})
 				.execute('not-found/');
 
 		</script>
