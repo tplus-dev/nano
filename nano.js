@@ -425,9 +425,7 @@
 		 */
 		
 		this.onSuccess = function ( closure ) {
-
 			return this.setCallback( 'success', closure );
-
 		}
 
 		/**
@@ -438,9 +436,7 @@
 		 */
 		
 		this.onError = function ( closure ) {
-
 			return this.setCallback( 'error', closure );
-
 		}
 
 		/**
@@ -451,9 +447,7 @@
 		 */
 		
 		this.always = function ( closure ) {
-
 			return this.setCallback( 'always', closure );
-
 		}
 
 		/**
